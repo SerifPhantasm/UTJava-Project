@@ -23,3 +23,7 @@ mus_ID: 234
 
 Process finished with exit code 0
 ````
+
+## Code Errors
+### 150: Unsupported Operating System
+Using Linux or an unsupported Operating system. This program only supports Windows 7/10/11 and MacOS 26(and above)

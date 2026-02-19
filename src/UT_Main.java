@@ -13,6 +13,7 @@ public class UT_Main {
         System.out.println(getOperatingSys());
         if (getOperatingSys().equals("unknown"))
         {
+            System.out.print("CODE: 150");
             System.out.println("Unknown OS or Linux(Unsupported). Exiting.");
             System.exit(0);
         }
