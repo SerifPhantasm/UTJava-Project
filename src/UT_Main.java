@@ -10,10 +10,25 @@ public class UT_Main {
     public static void main(String[] args) throws IOException {
 
 
+        System.out.println(getOperatingSys());
+        if (getOperatingSys().equals("unknown"))
+        {
+            System.out.println("Unknown OS or Linux(Unsupported). Exiting.");
+            System.exit(0);
+        }
 
         // start
-        String file0dir = System.getProperty("user.home") + "\\AppData\\Local\\UNDERTALE\\file0";
-        System.out.println(file0dir);
+        String os = getOperatingSys();
+        String file0dir = "";
+
+        if (os.equals("windows")) {
+            file0dir = System.getProperty("user.home") + "\\AppData\\Local\\UNDERTALE\\file0";
+        } else if (os.equals("macos")) {
+            file0dir = System.getProperty("user.home") + "/Library/Application Support/com.tobyfox.undertale/file0";
+        }
+
+
+        System.out.println("dir: " + file0dir);
         List<String> file0lines = Files.readAllLines(Path.of(file0dir));
         System.out.println("Press Enter to continue or type exit to quit.");
 
@@ -49,10 +64,10 @@ public class UT_Main {
         System.out.println(file0lines.get(12));
 
         System.out.print("KILLS: ");
-        System.out.println(file0lines.get(13));
+        System.out.println(file0lines.get(11));
 
         System.out.print("FUN VALUE: ");
-        System.out.println(file0lines.get(37));
+        System.out.println(file0lines.get(35));
 
         System.out.print("CURRENT ROOM: ");
         System.out.println(file0lines.get(547));
@@ -60,15 +75,31 @@ public class UT_Main {
         System.out.print("mus_ID: ");
         System.out.println(file0lines.get(546));
 
-
-
-
-
-
-
-
+        int game_time = Integer.parseInt((file0lines.get(548).trim()));
+        game_time = game_time / 30 / 60;
+        System.out.print("TIME PLAYED: ");
+        System.out.println(game_time + " minutes");
 
 
 
     }
+
+    private static String getOperatingSys()
+    {
+        String os = System.getProperty("os.name").toLowerCase();
+
+        if (os.contains("win")) {
+            System.out.println("windows");
+            return "windows";
+        } else if (os.contains("mac")) {
+            System.out.println("macos");
+            return "macos";
+        } else {
+            System.out.println("Unknown");
+            return "unknown";
+        }
+
+    }
+
+
 }
