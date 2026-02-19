@@ -43,7 +43,10 @@ public class UT_Main {
             System.out.print("Exiting.");
             System.exit(0);
         }
-
+        if (enterinp_str.equals("edit"))
+        {
+            editSave();
+        }
         System.out.print("Name: ");
         System.out.println(file0lines.getFirst());
 
@@ -105,7 +108,8 @@ public class UT_Main {
 
 
     public static void editSave() throws IOException {
-        System.out.print(".");
+        System.out.print("Not Finished.");
+        System.exit(0);
     }
 
 }
