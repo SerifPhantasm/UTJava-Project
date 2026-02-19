@@ -32,6 +32,7 @@ public class UT_Main {
         System.out.println("dir: " + file0dir);
         List<String> file0lines = Files.readAllLines(Path.of(file0dir));
         System.out.println("Press Enter to continue or type exit to quit.");
+        System.out.println("You can also type edit, to edit your save file.");
 
 
         // enter or exit
@@ -102,5 +103,9 @@ public class UT_Main {
 
     }
 
+
+    public static void editSave() throws IOException {
+        System.out.print(".");
+    }
 
 }
