@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class UT_Main {
 
     // base
-    public static void main(String[] args) throws IOException {
+    public static void main() throws IOException {
 
 
         System.out.println(getOperatingSys());
