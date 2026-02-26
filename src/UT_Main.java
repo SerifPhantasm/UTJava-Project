@@ -9,7 +9,6 @@ public class UT_Main {
     // base
     public static void main() throws IOException {
 
-
         System.out.println(getOperatingSys());
         if (getOperatingSys().equals("unknown"))
         {
@@ -107,9 +106,10 @@ public class UT_Main {
     }
 
 
-    public static void editSave() throws IOException {
+    public static void editSave() {
         System.out.print("Not Finished.");
         System.exit(0);
     }
+
 
 }
