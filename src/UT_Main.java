@@ -22,8 +22,10 @@ public class UT_Main {
         String os = getOperatingSys();
         String file0dir = "";
 
+        // \AppData\Local\UNDERTALE\file0
+        // \Downloads\file0
         if (os.equals("windows")) {
-            file0dir = System.getProperty("user.home") + "\\AppData\\Local\\UNDERTALE\\file0";
+            file0dir = System.getProperty("user.home") + "/Downloads/file0";
         } else if (os.equals("macos")) {
             file0dir = System.getProperty("user.home") + "/Library/Application Support/com.tobyfox.undertale/file0";
         }
@@ -37,8 +39,8 @@ public class UT_Main {
 
 
         // enter or exit
-        Scanner enterinp = new Scanner(System.in);
-        String enterinp_str = enterinp.nextLine();
+        Scanner enterinput = new Scanner(System.in);
+        String enterinp_str = enterinput.nextLine();
         if (enterinp_str.equals("exit"))
         {
             System.out.print("Exiting.");
