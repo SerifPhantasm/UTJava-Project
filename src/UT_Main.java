@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class UT_Main {
 
     // base
-    public static void main() throws IOException {
+    public static void main(String[] args) throws IOException {
+
 
         System.out.println(getOperatingSys());
         if (getOperatingSys().equals("unknown"))
@@ -30,6 +31,7 @@ public class UT_Main {
 
         System.out.println("dir: " + file0dir);
         List<String> file0lines = Files.readAllLines(Path.of(file0dir));
+        SaveData save = new SaveData(file0lines);
         System.out.println("Press Enter to continue or type exit to quit.");
         System.out.println("You can also type edit, to edit your save file.");
 
@@ -47,42 +49,40 @@ public class UT_Main {
             editSave();
         }
         System.out.print("Name: ");
-        System.out.println(file0lines.getFirst());
+        System.out.println(save.name);
 
         System.out.print("LV: ");
-        System.out.println(file0lines.get(1));
+        System.out.println(save.lv);
 
         System.out.print("MaxHP: ");
-        System.out.println(file0lines.get(2) + "/ " + file0lines.get(2));
+        System.out.println(save.maxHP + "/ " + save.maxHP);
 
         System.out.print("ATTACK: ");
-        System.out.println(file0lines.get(4));
+        System.out.println(save.attack);
 
         System.out.print("DEFENSE: ");
-        System.out.println(file0lines.get(6));
+        System.out.println(save.defense);
 
         System.out.print("XP: ");
-        System.out.println(file0lines.get(9));
+        System.out.println(save.xp);
 
         System.out.print("GOLD: ");
-        System.out.println(file0lines.get(12));
+        System.out.println(save.gold);
 
         System.out.print("KILLS: ");
-        System.out.println(file0lines.get(11));
+        System.out.println(save.kills);
 
         System.out.print("FUN VALUE: ");
-        System.out.println(file0lines.get(35));
+        System.out.println(save.funValue);
 
         System.out.print("CURRENT ROOM: ");
-        System.out.println(file0lines.get(547));
+        System.out.println(save.currentRoom);
 
         System.out.print("mus_ID: ");
-        System.out.println(file0lines.get(546));
+        System.out.println(save.musId);
 
-        int game_time = Integer.parseInt((file0lines.get(548).trim()));
-        game_time = game_time / 30 / 60;
         System.out.print("TIME PLAYED: ");
-        System.out.println(game_time + " minutes");
+        System.out.println(save.timePlayed + " minutes");
 
 
 
@@ -99,7 +99,7 @@ public class UT_Main {
             System.out.println("macos");
             return "macos";
         } else {
-            System.out.println("Unknown");
+            System.out.println("Not Supported OS.");
             return "unknown";
         }
 
